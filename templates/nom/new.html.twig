@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Nom{% endblock %}
+
+{% block body %}
+    <h1>Create new Nom</h1>
+
+    {{ include('nom/_form.html.twig') }}
+
+    <a href="{{ path('nom_index') }}">back to list</a>
+{% endblock %}

@@ -6,6 +6,8 @@ use App\Entity\Nom;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\File;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 
 class NomType extends AbstractType
 {
@@ -15,8 +17,24 @@ class NomType extends AbstractType
             ->add('prix')
             ->add('quantite')
             ->add('origine')
+            ->add('photo', Filetype::class,[
+                'label' => 'ajouter une photo',
+                'mapped'=>false,
+                'required'=>false,
+                'constraints' =>[
+                    new File([
+                        'maxSize'=>'10240k',
+                        'mimeTypes'=>[
+                            'image/jpeg',
+                            'image/png'
+                        ],
+                        'mimeTypesMessage' => 'Veuillez insérer un jpeg ou un png uniquement'
+                    ])
+                ],
+            ])
         ;
     }
+    
 
     public function configureOptions(OptionsResolver $resolver): void
     {

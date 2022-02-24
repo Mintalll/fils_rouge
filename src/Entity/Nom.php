@@ -32,6 +32,23 @@ class Nom
      */
     private $origine;
 
+    /**
+     * @ORM\Column(type="string", nullable=true)
+     */
+    private $photo;
+
+    public function getPhoto(): ?string
+    {
+        return $this->photo;
+    }
+
+    public function setPhoto(?string $photo): self
+    {
+        $this->photo = $photo;
+
+        return $this;
+    }
+
     public function getId(): ?int
     {
         return $this->id;

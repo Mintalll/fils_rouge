@@ -17,6 +17,7 @@ class NomType extends AbstractType
             ->add('prix')
             ->add('quantite')
             ->add('origine')
+            ->add('categ')
             ->add('photo', Filetype::class,[
                 'label' => 'ajouter une photo',
                 'mapped'=>false,

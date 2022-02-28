@@ -37,6 +37,12 @@ class Nom
      */
     private $photo;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Categ::class, inversedBy="noms")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $categ;
+
     public function getPhoto(): ?string
     {
         return $this->photo;
@@ -86,6 +92,18 @@ class Nom
     public function setOrigine(?string $origine): self
     {
         $this->origine = $origine;
+
+        return $this;
+    }
+
+    public function getCateg(): ?Categ
+    {
+        return $this->categ;
+    }
+
+    public function setCateg(?Categ $categ): self
+    {
+        $this->categ = $categ;
 
         return $this;
     }

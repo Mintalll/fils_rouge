@@ -35,4 +35,13 @@ class BrandNewController extends AbstractController
             'controller_name' => 'MentionsL',
         ]);
     }
+    /**
+     * @Route("/Categ", name="Categ")
+     */
+    public function Categ(): Response
+    {
+        return $this->render('brand_new/categ.html.twig', [
+            'controller_name' => 'categ',
+        ]);
+    }
 }
